@@ -28,4 +28,23 @@ class Point {
   Point operator -(Point other) {
     return Point(x - other.x, y - other.y);
   }
+
+  @override
+  String toString() {
+    return '($x, $y)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Point &&
+        x == other.x &&
+        y == other.y;
+  }
+
+  @override
+  int get hashCode {
+    return x.hashCode ^ y.hashCode;
+  }
 }
